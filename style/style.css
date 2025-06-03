@@ -1,0 +1,23 @@
+#map{
+    height: 95vh;
+    width: 70%;
+    border-radius: 20px;
+
+}
+
+.main-container{
+    display: flex;
+ 
+}
+
+.menu-main{
+    width: 30%;
+    padding: 10px;
+}
+
+
+.dropZone{
+    border: 1px dashed black;
+    height: 20vh;
+}
+
