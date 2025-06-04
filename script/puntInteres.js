@@ -45,6 +45,8 @@ class Atraccio extends PuntInteres {
         this.preu = preu;
         this.moneda = moneda;
     }
+
+
 }
 
 
@@ -57,4 +59,6 @@ class Museu extends PuntInteres {
         this.moneda = moneda;
         this.descripcio = descripcio;
     }
+
+
 }

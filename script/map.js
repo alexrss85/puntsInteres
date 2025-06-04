@@ -5,6 +5,7 @@ class Mapa {
     #currentLon;
     
     constructor() {
+        this.marcadors = {};
         this.#getPosicioActual();
         const mapCenter = [this.#currentLat, this.#currentLon];
         let zoomLevel = 13;
@@ -24,7 +25,7 @@ class Mapa {
                     lon = position.coords.longitude;
 
                     // Coloca un marcador en la ubicació actual del usuari
-                    L.marker([lat, lon]).addTo(this.#map).bindPopup("Estás aquí").openPopup();
+                    this.mostrarPuntInicial(lat,lon);
 
                     // Centra el mapa en la ubicació actual
                     this.#map.setView([lat, lon], 13);  // 'this.#map' fa referència a l'objecte de la classe
@@ -41,20 +42,38 @@ class Mapa {
         this.#currentLon = lon;
     }
 
-    mostrarPuntInicial() {
 
+    //mostra el punt on estas
+    mostrarPuntInicial(lat,lon) {
+        L.marker([lat, lon]).addTo(this.#map).bindPopup("Estás aquí").openPopup();
     }
 
-    actualitzarPosInitMapa(lat, lon) {
 
+
+    //pinta el punt al mapa
+    mostrarPunt(lat, long, nom, direccio, descripcio,id) {
+        const popupContent = `<strong>${nom}</strong><p>${direccio}</p><p>${descripcio}</p>`;
+        const marcador = L.marker([parseFloat(lat), parseFloat(long)]).addTo(this.#map).bindPopup(popupContent);
+        // Guardem el marcador amb l'id
+        this.marcadors[id] = marcador;  
     }
 
-    mostrarPunt(lat, long, desc) {
-
+    //borra el punt del mapa
+    borrarPunt(id) {
+        // borrar del mapa 
+        this.#map.removeLayer(this.marcadors[id]);  
+        // eliminar el marcador de la llista de marcadors
+        delete this.marcadors[id];  
     }
 
-    borrarPunt() {
-
+    //borra tots el marcadors
+   borrarTotsElsPunts() {
+        for (let id in this.marcadors) {
+            this.#map.removeLayer(this.marcadors[id]);
+        }
+        this.marcadors = {};
     }
+
+
 
 }

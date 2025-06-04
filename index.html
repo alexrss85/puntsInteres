@@ -12,7 +12,27 @@
 <body>
     <div class="main-container">
         <div class="menu-main">
-            Hello World!
+            <div class="filtres">
+                <label for="selectTipus">Tipus de punt d'interès:</label>
+                <select id="selectTipus">
+                    <option value="tots">Tots</option>
+                </select>
+
+                <label for="selectOrdre">Ordenar per:</label>
+                <select id="selectOrdre">
+                    <option value="nom_asc">Nom (A-Z)</option>
+                    <option value="nom_desc">Nom (Z-A)</option>
+                    <option value="puntuacio_desc">Puntuació (desc)</option>
+                    <option value="puntuacio_asc">Puntuació (asc)</option>
+                </select>
+
+                <label for="inputNom">Filtrar per nom:</label>
+                <input type="text" id="inputNom" placeholder="Escriu un nom..."/>
+            </div>
+
+            <div class="llistat">No hi ha informació a mostrar</div>
+            <p id="totalPunts" class="total-punts">Número total: 0</p>
+            <button id="botoNetejar">Netejar llista</button>
             <div class="dropZone">Arrastra el csv</div>
         </div>
         <div id="map"></div>
