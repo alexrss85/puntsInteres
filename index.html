@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    
+    <title>Google Maps</title>
+</head>
+<body>
+    <div class="main-container">
+        <div class="menu-main">
+            <div class="filtres">
+                <label for="selectTipus">Tipus de punt d'interès:</label>
+                <select id="selectTipus">
+                    <option value="tots">Tots</option>
+                </select>
+
+                <label for="selectOrdre">Ordenar per:</label>
+                <select id="selectOrdre">
+                    <option value="nom_asc">Nom (A-Z)</option>
+                    <option value="nom_desc">Nom (Z-A)</option>
+                    <option value="puntuacio_desc">Puntuació (desc)</option>
+                    <option value="puntuacio_asc">Puntuació (asc)</option>
+                </select>
+
+                <label for="inputNom">Filtrar per nom:</label>
+                <input type="text" id="inputNom" placeholder="Escriu un nom..."/>
+            </div>
+
+            <div class="llistat">No hi ha informació a mostrar</div>
+            <p id="totalPunts" class="total-punts">Número total: 0</p>
+            <button id="botoNetejar">Netejar llista</button>
+            <div class="dropZone">Arrastra el csv</div>
+        </div>
+        <div id="map"></div>
+    </div>
+    
+
+    <script src="script/const.js"></script>  
+    <script src="script/map.js"></script>   
+    <script src="script/puntInteres.js"></script>
+    <script src="script/app.js"></script>    
+</html>
